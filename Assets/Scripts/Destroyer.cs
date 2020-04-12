@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Destroyer : MonoBehaviour
+{
+    [SerializeField] private Health _health;
+    [SerializeField] private int _damage = 30;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Egg egg))
+        {
+            _health.TakeDamage(_damage);
+        }
+    }
+}
