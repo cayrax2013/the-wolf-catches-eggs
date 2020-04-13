@@ -11,9 +11,21 @@ public class Egg : MonoBehaviour
         if (collision.TryGetComponent(out PlayerMover playerMover))
         {
             playerMover.GetComponent<Score>().TakeScore(_score);
+            Die();
         }
 
-        Die();
+        else if (collision.TryGetComponent(out Destroyer destroyer))
+        {
+            Die();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (transform.position.x > 0)
+            transform.Rotate(0f, 0f, 47f * 0.2f);
+        else
+            transform.Rotate(0f, 0f, -47f * 0.2f);
     }
 
     private void Die()

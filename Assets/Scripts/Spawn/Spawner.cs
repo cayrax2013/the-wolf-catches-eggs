@@ -5,8 +5,10 @@ using UnityEngine;
 public class Spawner : ObjectPool
 {
     [SerializeField] private GameObject _eggPrefab;
+    [SerializeField] private GameObject _bomb;
     [SerializeField] private Transform _theMainSpawner;
     [SerializeField] private float _secondsBetweenSpawn;
+    [SerializeField] private int _delayBetweenRiseSpeedSpawn = 1;
 
     private Transform[] _spawnPoints;
     private float _elapsedTime = 0;
@@ -21,6 +23,23 @@ public class Spawner : ObjectPool
         }
 
         Initialize(_eggPrefab);
+
+        StartCoroutine(ToIncreaseTheSpeedOf());
+    }
+
+    private IEnumerator ToIncreaseTheSpeedOf()
+    {
+        var secondsWaitForSeconds = new WaitForSeconds(_delayBetweenRiseSpeedSpawn);
+
+        while (true)
+        {
+            if (_secondsBetweenSpawn > 0.5350004f)
+                _secondsBetweenSpawn -= 0.005f;
+            else
+                _secondsBetweenSpawn -= 0.0005f;
+
+            yield return secondsWaitForSeconds;
+        }
     }
 
     private void Update()

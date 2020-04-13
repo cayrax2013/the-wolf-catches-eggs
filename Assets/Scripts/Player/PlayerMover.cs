@@ -2,48 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _stepSize = 3f;
-    [SerializeField] private float _minXPos = -3f;
-    [SerializeField] private float _maxXPos = 3f;
+    [SerializeField] private float _speed;
 
-    private Rigidbody2D _rigidbody2D;
-    private Vector3 _targetPosition;
+    public Vector3 TargetPosition;
+
+    private Vector2 _direction;
+    private bool _facingRight = true;
 
     private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-
-        _targetPosition = transform.position;
+        TargetPosition = transform.position;
     }
 
     private void Update()
     {
         Move();
+
+        if (_direction.x < 0 && _facingRight)
+            Flip();
+        else if (_direction.x > 0 && !_facingRight)
+            Flip();
     }
 
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, TargetPosition, _speed * Time.deltaTime);
+        _direction = (TargetPosition - transform.position).normalized;
     }
 
-    public void MoveRight()
+    private void Flip()
     {
-        if (_targetPosition.x < _maxXPos)
-            SetNextPosition(_stepSize);
-    }
-
-    public void MoveLeft()
-    {
-        if (_targetPosition.x > _minXPos)
-            SetNextPosition(-_stepSize);
-    }
-
-    private void SetNextPosition(float stepSize)
-    {
-        _targetPosition = new Vector2(_targetPosition.x + stepSize, _targetPosition.y);
+        _facingRight = !_facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }
