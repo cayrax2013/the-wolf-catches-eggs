@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Egg : MonoBehaviour
 {
     [SerializeField] private int _score = 1;
+    [SerializeField] private float _speed = 2f;
+
+    private Rigidbody2D _rigidbody;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,12 +29,28 @@ public class Egg : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.TryGetComponent(out Bomb bomb))
+        {
+            bomb.gameObject.SetActive(false);
+            Die();
+        }
+            
+    }
+
     private void FixedUpdate()
     {
         if (transform.position.x > 0)
+        {
             transform.Rotate(0f, 0f, 47f * 0.2f);
+            _rigidbody.velocity = new Vector2(-1 * _speed, _rigidbody.velocity.y);
+        }
         else
+        {
             transform.Rotate(0f, 0f, -47f * 0.2f);
+            _rigidbody.velocity = new Vector2(1 * _speed, _rigidbody.velocity.y);
+        }
     }
 
     private void Die()

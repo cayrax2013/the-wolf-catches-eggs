@@ -63,12 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bomb\Bomb.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Egg\Egg.cs" />
     <Compile Include="Assets\Scripts\MovePoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Spawn\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\Spawn\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Spawn\SpawnerBomb.cs" />
+    <Compile Include="Assets\Scripts\Spawn\SpawnerEgg.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Health\DisplayHealth.cs" />
     <Compile Include="Assets\Scripts\UI\Health\Health.cs" />
