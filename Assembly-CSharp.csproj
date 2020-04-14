@@ -63,19 +63,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Audio.cs" />
     <Compile Include="Assets\Scripts\Bomb\Bomb.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Egg\Egg.cs" />
+    <Compile Include="Assets\Scripts\Egg\GoldEgg.cs" />
     <Compile Include="Assets\Scripts\MovePoint.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Spawn\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Spawn\SpawnerBomb.cs" />
     <Compile Include="Assets\Scripts\Spawn\SpawnerEgg.cs" />
+    <Compile Include="Assets\Scripts\Spawn\SpawnerGoldEgg.cs" />
+    <Compile Include="Assets\Scripts\UI\AboutDevelopers.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\UI\Health\DisplayHealth.cs" />
     <Compile Include="Assets\Scripts\UI\Health\Health.cs" />
     <Compile Include="Assets\Scripts\UI\Interfaces\IPresenter.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuGame.cs" />
+    <Compile Include="Assets\Scripts\UI\OpenPageAboutRaushan.cs" />
+    <Compile Include="Assets\Scripts\UI\OpePageAboutDevelopers.cs" />
+    <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Score\DisplayRecordScore.cs" />
     <Compile Include="Assets\Scripts\UI\Score\DisplayScore.cs" />
     <Compile Include="Assets\Scripts\UI\Score\DisplayScoreForOneGame.cs" />
