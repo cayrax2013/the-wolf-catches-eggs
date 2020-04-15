@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Egg\Egg.cs" />
     <Compile Include="Assets\Scripts\Egg\GoldEgg.cs" />
     <Compile Include="Assets\Scripts\MovePoint.cs" />
+    <Compile Include="Assets\Scripts\OrientationSetter.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMover.cs" />
     <Compile Include="Assets\Scripts\Spawn\ObjectPool.cs" />
