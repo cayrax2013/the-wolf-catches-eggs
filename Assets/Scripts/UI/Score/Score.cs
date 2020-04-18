@@ -12,7 +12,7 @@ public class Score : MonoBehaviour
     [SerializeField] private UnityEvent _reachedEnoughAmountScore;
     [SerializeField] private int _currentScore;
 
-    public void TakeScore(int score)
+    public void TakeScore(int score)    
     {
         _currentScore += score;
         _onScoreChanged?.Invoke(_currentScore);
